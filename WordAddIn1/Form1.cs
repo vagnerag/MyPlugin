@@ -21,9 +21,7 @@ namespace WordAddIn1
 		public Form1()
 		{
 			InitializeComponent();
-			comboBox1.Items.Add("a");
-			comboBox1.Items.Add("b");
-			comboBox1.Items.Add("c");
+
 		}
 
 		private void Form1_Activated(object sender, EventArgs e)
@@ -38,8 +36,35 @@ namespace WordAddIn1
 			//	MessageBox.Show(selecao.Text);
 			comboBox1.Items.Add(selecao.Text);
 
+			//Word.Document doc = Globals.ThisAddIn.Application.Documents.Add();
+
 
 
 		}
+
+		protected override void OnDragDrop(DragEventArgs e)
+		{
+			e.Effect = DragDropEffects.Copy;
+			Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+			doc.Save();
+
+			//base.OnDragDrop(e);
+		}
+
+		private void comboBox1_DragDrop(object sender, DragEventArgs e)
+		{
+			OnDragDrop(e);
+		}
+		/*
+				private void comboBox1_DragEnter(object sender, DragEventArgs e)
+				{
+					e.Effect = DragDropEffects.All;
+				}
+
+				private void comboBox1_DragLeave(object sender, EventArgs e)
+				{
+					Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
+					MessageBox.Show(e.ToString());
+				}*/
 	}
 }

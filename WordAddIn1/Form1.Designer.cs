@@ -28,18 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.button1 = new System.Windows.Forms.Button();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(12, 69);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 21);
-			this.comboBox1.TabIndex = 0;
-			this.comboBox1.UseWaitCursor = true;
 			// 
 			// button1
 			// 
@@ -51,9 +42,27 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// comboBox1
+			// 
+			this.comboBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Document;
+			this.comboBox1.AllowDrop = true;
+			this.comboBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.comboBox1.Cursor = System.Windows.Forms.Cursors.Default;
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Items.AddRange(new object[] {
+            "a",
+            "b",
+            "c",
+            "d"});
+			this.comboBox1.Location = new System.Drawing.Point(12, 69);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(121, 21);
+			this.comboBox1.TabIndex = 0;
+			// 
 			// Form1
 			// 
 			this.AcceptButton = this.button1;
+			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScrollMargin = new System.Drawing.Size(200, 100);
