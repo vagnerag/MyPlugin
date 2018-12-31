@@ -34,10 +34,13 @@ namespace WordAddIn1
 
 
 			//	MessageBox.Show(selecao.Text);
-			comboBox1.Items.Add(selecao.Text);
-
+			//comboBox1.Items.Add(selecao.Text);
 			//Word.Document doc = Globals.ThisAddIn.Application.Documents.Add();
+			Word.Range rg = selecao.Range;
+			
+			rg.InsertBefore("[pertence("+comboBox1.SelectedItem.ToString()+", ListaTeste)");
 
+			rg.InsertAfter("]");
 
 
 		}
@@ -55,16 +58,29 @@ namespace WordAddIn1
 		{
 			OnDragDrop(e);
 		}
-		/*
-				private void comboBox1_DragEnter(object sender, DragEventArgs e)
-				{
-					e.Effect = DragDropEffects.All;
-				}
 
-				private void comboBox1_DragLeave(object sender, EventArgs e)
-				{
-					Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
-					MessageBox.Show(e.ToString());
-				}*/
+		private void button2_Click(object sender, EventArgs e)
+		{
+			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
+			
+			Word.Range rg = selecao.Range;
+
+			rg.InsertBefore("[ListaTeste = " + comboBox1.SelectedItem.ToString());
+
+			rg.InsertAfter("]");
+		}
+
+		
+		/*
+private void comboBox1_DragEnter(object sender, DragEventArgs e)
+{
+	e.Effect = DragDropEffects.All;
+}
+
+private void comboBox1_DragLeave(object sender, EventArgs e)
+{
+	Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
+	MessageBox.Show(e.ToString());
+}*/
 	}
 }
