@@ -16,38 +16,42 @@ namespace WordAddIn1
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
-
+			
 			string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
 
 			rg.InsertBefore("[");
 			rg.InsertAfter("]");
+			rg.Select();
+			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 			rg.Start = rg.Start + 1;
 			rg.Select();
 			rg.InsertBefore(condicao);
 			rg.End = rg.Start + condicao.Length;
 			rg.Select();
 			rg.Application.Selection.Font.Subscript = -1;
-			rg = selecao.Range;
+			//rg = selecao.Range;
+			//rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
-
+			
 			string condicao = "ListaTeste = \"" + Lista_Teste.SelectedItem.ToString() + "\"";
 
 			rg.InsertBefore("[");
 			rg.InsertAfter("]");
+			rg.Select();
+			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 			rg.Start = rg.Start + 1;
 			rg.Select();
 			rg.InsertBefore(condicao);
 			rg.End = rg.Start + condicao.Length;
 			rg.Select();
 			rg.Application.Selection.Font.Subscript = -1;
-			rg = selecao.Range;
+			//rg = selecao.Range;
+			//rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 		}
 
 		protected override void OnDragDrop(DragEventArgs e)
