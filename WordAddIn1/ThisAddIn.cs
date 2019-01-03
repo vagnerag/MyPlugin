@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Word;
-using System.Windows.Forms;
-using Microsoft.Office.Tools.Ribbon;
-
-namespace WordAddIn1
+﻿namespace WordAddIn1
 {
 	public partial class ThisAddIn
 	{

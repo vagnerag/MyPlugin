@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Word;
 
 
 namespace WordAddIn1
@@ -29,7 +18,7 @@ namespace WordAddIn1
 			Word.Range rg = selecao.Range;
 
 
-			string condicao = "pertence(" + Lista_Teste.SelectedItem.ToString() + ", " + Lista_Teste.Name + ")";
+			string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
 
 			rg.InsertBefore("[");
 			rg.InsertAfter("]");
@@ -47,7 +36,7 @@ namespace WordAddIn1
 			Word.Range rg = selecao.Range;
 
 
-			string condicao = "ListaTeste = " + Lista_Teste.SelectedItem.ToString();
+			string condicao = "ListaTeste = \"" + Lista_Teste.SelectedItem.ToString() + "\"";
 
 			rg.InsertBefore("[");
 			rg.InsertAfter("]");
