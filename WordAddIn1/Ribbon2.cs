@@ -14,20 +14,16 @@ namespace WordAddIn1
 {
 	public partial class Ribbon2
 	{
-		public Form1 fm;
 		private void Ribbon2_Load(object sender, RibbonUIEventArgs e)
 		{
-			fm = new Form1();
+			//thisAddin = new ThisAddIn();
 		}
 
-		private void button1_Click(object sender, RibbonControlEventArgs e)
+		public void button1_Click(object sender, RibbonControlEventArgs e)
 		{
-				
-			//fm.DoDragDrop();
-			fm.Show();
-			
-			
-			
+
+			ThisAddIn.iniciarPlugin();
+
 		}
 	}
 }
