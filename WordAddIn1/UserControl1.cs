@@ -16,7 +16,7 @@ namespace WordAddIn1
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-
+			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 
 			string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
 
@@ -27,14 +27,15 @@ namespace WordAddIn1
 			rg.InsertBefore(condicao);
 			rg.End = rg.Start + condicao.Length;
 			rg.Select();
-			rg.Application.Selection.Font.Subscript = - 1;
+			rg.Application.Selection.Font.Subscript = -1;
+			rg = selecao.Range;
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-
+			rg.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 
 			string condicao = "ListaTeste = \"" + Lista_Teste.SelectedItem.ToString() + "\"";
 
@@ -46,6 +47,7 @@ namespace WordAddIn1
 			rg.End = rg.Start + condicao.Length;
 			rg.Select();
 			rg.Application.Selection.Font.Subscript = -1;
+			rg = selecao.Range;
 		}
 
 		protected override void OnDragDrop(DragEventArgs e)
