@@ -38,7 +38,7 @@
 			this.button2.BackColor = System.Drawing.SystemColors.Control;
 			this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.button2.Location = new System.Drawing.Point(49, 92);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(160, 28);
 			this.button2.TabIndex = 6;
@@ -50,7 +50,7 @@
 			// 
 			this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.button1.Location = new System.Drawing.Point(49, 36);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(160, 28);
 			this.button1.TabIndex = 5;
@@ -71,10 +71,12 @@
             "c",
             "d"});
 			this.Lista_Teste.Location = new System.Drawing.Point(49, 147);
-			this.Lista_Teste.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Lista_Teste.Margin = new System.Windows.Forms.Padding(4);
 			this.Lista_Teste.Name = "Lista_Teste";
 			this.Lista_Teste.Size = new System.Drawing.Size(160, 24);
 			this.Lista_Teste.TabIndex = 4;
+			this.Lista_Teste.Click += new System.EventHandler(this.Lista_Teste_Click);
+			this.Lista_Teste.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Lista_Teste_MouseMove);
 			// 
 			// UserControl1
 			// 
@@ -85,10 +87,9 @@
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.Lista_Teste);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "UserControl1";
 			this.Size = new System.Drawing.Size(336, 502);
-			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.comboBox1_DragDrop);
 			this.ResumeLayout(false);
 
 		}

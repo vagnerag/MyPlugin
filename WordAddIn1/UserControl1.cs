@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using Word = Microsoft.Office.Interop.Word;
 
 
@@ -7,6 +8,7 @@ namespace WordAddIn1
 {
 	public partial class UserControl1 : UserControl
 	{
+
 		public UserControl1()
 		{
 			InitializeComponent();
@@ -16,7 +18,7 @@ namespace WordAddIn1
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-			
+
 			string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
 
 			rg.InsertBefore("[");
@@ -37,7 +39,7 @@ namespace WordAddIn1
 		{
 			Word.Selection selecao = Globals.ThisAddIn.Application.Selection;
 			Word.Range rg = selecao.Range;
-			
+
 			string condicao = "ListaTeste = \"" + Lista_Teste.SelectedItem.ToString() + "\"";
 
 			rg.InsertBefore("[");
@@ -63,9 +65,30 @@ namespace WordAddIn1
 			//base.OnDragDrop(e);
 		}
 
-		private void comboBox1_DragDrop(object sender, DragEventArgs e)
+		protected override void OnMouseMove(MouseEventArgs e)
 		{
-			OnDragDrop(e);
+			base.OnMouseMove(e);
+			if (e.Button == MouseButtons.Left)
+			{
+				// Package the data.
+				DataObject data = new DataObject();
+				data.SetData(DataFormats.StringFormat, Lista_Teste.SelectedItem.ToString());
+				//data.SetData("Double", circleUI.Height);
+				//data.SetData("Object", this);
+
+				// Inititate the drag-and-drop operation.
+				this.Lista_Teste.DoDragDrop(data, DragDropEffects.Copy | DragDropEffects.Move);
+			}
+		}
+
+		private void Lista_Teste_MouseMove(object sender, MouseEventArgs e)
+		{
+			OnMouseMove(e);
+		}
+
+		private void Lista_Teste_Click(object sender, EventArgs e)
+		{
+			this.Lista_Teste.DroppedDown = true;
 		}
 
 		/*private void comboBox1_DragEnter(object sender, DragEventArgs e)
