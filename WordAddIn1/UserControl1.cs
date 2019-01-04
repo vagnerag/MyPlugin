@@ -70,9 +70,11 @@ namespace WordAddIn1
 			base.OnMouseMove(e);
 			if (e.Button == MouseButtons.Left)
 			{
+				string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
 				// Package the data.
 				DataObject data = new DataObject();
-				data.SetData(DataFormats.StringFormat, Lista_Teste.SelectedItem.ToString());
+				data.SetData(DataFormats.StringFormat, condicao);
+		 /////////data.ContainsText.OnFontChanged(Globals.ThisAddIn.Application.Selection.Font.Subscript = -1);
 				//data.SetData("Double", circleUI.Height);
 				//data.SetData("Object", this);
 
