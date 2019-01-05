@@ -71,26 +71,42 @@ namespace WordAddIn1
 			if (e.Button == MouseButtons.Left)
 			{
 				string condicao = "pertence(\"" + Lista_Teste.SelectedItem.ToString() + "\", " + Lista_Teste.Name + ")";
+				
 				// Package the data.
 				DataObject data = new DataObject();
+
 				data.SetData(DataFormats.StringFormat, condicao);
-		 /////////data.ContainsText.OnFontChanged(Globals.ThisAddIn.Application.Selection.Font.Subscript = -1);
 				//data.SetData("Double", circleUI.Height);
 				//data.SetData("Object", this);
 
 				// Inititate the drag-and-drop operation.
 				this.Lista_Teste.DoDragDrop(data, DragDropEffects.Copy | DragDropEffects.Move);
+				Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
+				rg.Application.Selection.Font.Subscript = -1;
+			
 			}
 		}
 
 		private void Lista_Teste_MouseMove(object sender, MouseEventArgs e)
 		{
 			OnMouseMove(e);
+			
 		}
 
 		private void Lista_Teste_Click(object sender, EventArgs e)
 		{
 			this.Lista_Teste.DroppedDown = true;
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
+			rg.End = rg.Start;
+			rg.Select();
+			rg.InsertBefore("[");
+			rg.End = rg.Start + 1;
+			rg.Select();
+			rg.Application.Selection.Font.Subscript = 0;
 		}
 
 		/*private void comboBox1_DragEnter(object sender, DragEventArgs e)
@@ -103,5 +119,5 @@ namespace WordAddIn1
 			Word.Range rg = Globals.ThisAddIn.Application.Selection.Range;
 			MessageBox.Show(e.ToString());
 		}*/
+		}
 	}
-}

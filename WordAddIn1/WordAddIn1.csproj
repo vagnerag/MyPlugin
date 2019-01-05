@@ -242,7 +242,7 @@
     <ManifestKeyFile>WordAddIn1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D796ED1CB0C12EC7F17BF7EA5C99F6E170CF0621</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1986AC4A146C61B04BCA5B33166D54415191A123</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
